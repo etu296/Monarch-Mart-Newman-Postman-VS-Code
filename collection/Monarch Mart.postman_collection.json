@@ -1,0 +1,457 @@
+{
+	"info": {
+		"_postman_id": "87bac4cd-43fa-4403-b4de-d2ac06e55b5c",
+		"name": "Monarch Mart",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19522491"
+	},
+	"item": [
+		{
+			"name": "login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData=pm.response.json()\r",
+							"var token=jsonData.token\r",
+							"console.log(token)\r",
+							"pm.collectionVariables.set(\"token\", token)\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Login Successfully\", function () {\r",
+							"    var jsonData = pm.response.json(\"Login Successfully\");\r",
+							"\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"username\":\"8801315655618\",\"password\":\"123456\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.monarchmart.com/auth/customer/login",
+					"protocol": "https",
+					"host": [
+						"api",
+						"monarchmart",
+						"com"
+					],
+					"path": [
+						"auth",
+						"customer",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get product service",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\" Get Product Service Successfully\", function () {\r",
+							"    var jsonData = pm.response.json(\"Get Product Service Successfully\");\r",
+							"\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.monarchmart.com/productservice",
+					"protocol": "https",
+					"host": [
+						"api",
+						"monarchmart",
+						"com"
+					],
+					"path": [
+						"productservice"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get product service by id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\" Get Product Service by id Successfully\", function () {\r",
+							"    var jsonData = pm.response.json(\"Get Product Service by id Successfully\");\r",
+							"\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.monarchmart.com/productservice/4582638-dtex-bd-king-size-printed-comforter-for-winter-multi-color-ddcf-106",
+					"protocol": "https",
+					"host": [
+						"api",
+						"monarchmart",
+						"com"
+					],
+					"path": [
+						"productservice",
+						"4582638-dtex-bd-king-size-printed-comforter-for-winter-multi-color-ddcf-106"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get Category",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\" Get Category Successfully\", function () {\r",
+							"    var jsonData = pm.response.json(\"Get Category Successfully\");\r",
+							"\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.monarchmart.com/catalog/category",
+					"protocol": "https",
+					"host": [
+						"api",
+						"monarchmart",
+						"com"
+					],
+					"path": [
+						"catalog",
+						"category"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get Category by id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\" Get Category by id Successfully\", function () {\r",
+							"    var jsonData = pm.response.json(\"Get Category by id Successfully\");\r",
+							"\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.monarchmart.com/catalog/category/141",
+					"protocol": "https",
+					"host": [
+						"api",
+						"monarchmart",
+						"com"
+					],
+					"path": [
+						"catalog",
+						"category",
+						"141"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add to cart",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\" Added to cart Successfully\", function () {\r",
+							"    var jsonData = pm.response.json(\"Added to cart Successfully\");\r",
+							"\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"shop_id\":119873,\"product_sku\":\"JP3GC-0119873-00108536-196\",\"product_slug\":\"cotton-unstitched-block-print-three-piece-for-women-multicolor\",\"product_id\":43465,\"product_image\":\"uploads/all/BnEO2G7i2ROWUB5cAG3LE7mfy2gFtt0XFxcboJUR.jpg\",\"product_title\":\"Cotton Unstitched Block Print Salwar Kameez for Women - Multicolor\",\"quantity\":1,\"unit_price\":1090,\"available_quantity\":50,\"unit_discounted_price\":590,\"discount_type\":\"percent\",\"discount_value\":46,\"variations\":[],\"min_quantity\":1,\"max_quantity\":100,\"delivery_charge\":0,\"free_items\":null,\"is_free_delivery\":false,\"inside_dhaka_delivery\":55,\"outside_dhaka_delivery\":120,\"campaign\":{\"id\":null,\"slug\":null,\"name\":null}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.monarchmart.com/cartservice/cart/add",
+					"protocol": "https",
+					"host": [
+						"api",
+						"monarchmart",
+						"com"
+					],
+					"path": [
+						"cartservice",
+						"cart",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get total prize",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\" GET Prize \", function () {\r",
+							"    var jsonData = pm.response.json(\"GET Prize\");\r",
+							"\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.monarchmart.com/promotion/monarch-promotion/user?total=1180",
+					"protocol": "https",
+					"host": [
+						"api",
+						"monarchmart",
+						"com"
+					],
+					"path": [
+						"promotion",
+						"monarch-promotion",
+						"user"
+					],
+					"query": [
+						{
+							"key": "total",
+							"value": "1180"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "remove cart",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\" Item Removed From Cart \", function () {\r",
+							"    var jsonData = pm.response.json(\"Item Removed From Cart\");\r",
+							"\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"shop_id\":119873,\"product_sku\":\"JP3GC-0119873-00108536-196\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.monarchmart.com/cartservice/cart/remove",
+					"protocol": "https",
+					"host": [
+						"api",
+						"monarchmart",
+						"com"
+					],
+					"path": [
+						"cartservice",
+						"cart",
+						"remove"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImV0dW1haG11ZGFAZ21haWwuY29tIiwidHlwZSI6ImN1c3RvbWVyIiwiaWF0IjoxNjcxNDMxMzkwLCJleHAiOjE3MDI5NjczOTB9.cmcgTYd8SNcpNps3DSUjfjyHT1cGJWuQN5F8WsEMxJI",
+			"type": "string"
+		}
+	]
+}
